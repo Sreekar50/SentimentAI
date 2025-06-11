@@ -33,39 +33,6 @@ A comprehensive web application that analyzes sentiment and purchase intent from
 - **YouTube Data API v3**: YouTube comments fetching
 - **BeautifulSoup**: Web scraping for e-commerce reviews
 
-## 📁 Project Structure
-
-```
-social-media-analysis/
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── App.js
-│   │   ├── App.css
-│   │   └── ...
-│   ├── package.json
-│   └── Dockerfile
-├── SentimentAI/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── auth.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── social_media_analysis/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── manage.py
-├── Dockerfile
-├── docker-compose.yml
-└── README.md
-```
-
 
 ## 📊 Usage
 
