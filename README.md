@@ -1,5 +1,5 @@
 # Social Media Sentiment Analysis Platform
-# Stack: Django, React, MySQL
+## Stack: Django, React, MySQL
 
 A comprehensive web application that analyzes sentiment and purchase intent from comments and reviews across multiple social media and e-commerce platforms including Twitter, Instagram, YouTube, Amazon, and Flipkart.
 
