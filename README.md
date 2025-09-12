@@ -16,7 +16,7 @@ A comprehensive web application that analyzes sentiment and purchase intent from
 ### Backend
 - **Django**: Web framework
 - **Django REST Framework**: API development
-- **PostgreSQL/SQLite**: Database
+- **MySQL**: Database
 - **Transformers (Hugging Face)**: BERT model for sentiment analysis
 - **spaCy**: Natural language processing
 - **PyTorch**: Deep learning framework
