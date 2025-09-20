@@ -1,51 +1,172 @@
-# Social Media Sentiment Analysis Platform
-## Stack: Django, React, MySQL
+# Social Media Sentiment Analysis
 
-A comprehensive web application that analyzes sentiment and purchase intent from comments and reviews across multiple social media and e-commerce platforms including Twitter, Instagram, YouTube, Amazon, and Flipkart.
+A full-stack web application that analyzes sentiment and purchase intent from social media comments and e-commerce reviews. Built with Django REST Framework backend and React frontend.
 
-## 🌟 Features
+## 🚀 Features
 
-- **Multi-Platform Support**: Analyze content from Twitter, Instagram, YouTube, Amazon, and Flipkart
-- **Sentiment Analysis**: Advanced BERT-based sentiment classification (Positive/Negative)
-- **Purchase Intent Detection**: Identifies potential buying signals in comments
-- **Interactive Dashboard**: Real-time visualization with pie charts and bar graphs
-- **User Authentication**: Secure user registration, login, and logout system
-- **RESTful API**: Clean API endpoints for data fetching and analysis
+- **Multi-Platform Support**: Analyze comments from Twitter, Instagram, YouTube, Amazon, and Flipkart
+- **Sentiment Analysis**: Advanced sentiment classification using BERT models
+- **Purchase Intent Detection**: Identify potential buying signals in comments
+- **User Authentication**: Secure token-based authentication system
+- **Data Visualization**: Interactive charts and graphs using Recharts
+- **Analysis History**: Track and view previous analysis results
+- **Real-time Processing**: Process and analyze comments in real-time
 
 ## 🛠️ Tech Stack
 
 ### Backend
-- **Django**: Web framework
-- **Django REST Framework**: API development
-- **MySQL**: Database
-- **Transformers (Hugging Face)**: BERT model for sentiment analysis
-- **spaCy**: Natural language processing
-- **PyTorch**: Deep learning framework
+- **Django 5.1.7** - Web framework
+- **Django REST Framework** - API development
+- **MySQL** - Database
+- **Transformers** - BERT models for sentiment analysis
+- **Tweepy** - Twitter API integration
+- **Instaloader** - Instagram data extraction
+- **YouTube Data API** - YouTube comments
+- **BeautifulSoup** - Web scraping for e-commerce sites
 
 ### Frontend
-- **React.js**: User interface
-- **Material-UI**: UI components
-- **Recharts**: Data visualization
-- **Axios**: HTTP client
+- **React 18** - User interface
+- **Material-UI** - UI components
+- **Recharts** - Data visualization
+- **Axios** - HTTP client
+- **CSS3** - Styling
 
-### APIs & Libraries
-- **Tweepy**: Twitter API integration
-- **Instaloader**: Instagram data extraction
-- **YouTube Data API v3**: YouTube comments fetching
-- **BeautifulSoup**: Web scraping for e-commerce reviews
+### AI/ML
+- **BERT (nlptown/bert-base-multilingual-uncased-sentiment)** - Sentiment analysis
+- **spaCy** - Natural language processing
+- **PyTorch** - Deep learning framework
 
+## 📋 Prerequisites
 
-## 📊 Usage
+Before running this application, make sure you have the following installed:
 
-1. **Access the Dashboard**: Navigate to `http://localhost:3000`
-2. **Enter URL**: Paste a URL from supported platforms:
-   - Twitter: `https://twitter.com/username/status/tweet_id`
-   - Instagram: `https://instagram.com/p/post_id/`
-   - YouTube: `https://youtube.com/watch?v=video_id`
-   - Amazon: Product page URL
-   - Flipkart: Product page URL
-3. **Analyze**: Click the "Analyze" button to fetch and analyze comments
-4. **View Results**: Interactive charts showing sentiment distribution and purchase intent
+- Python 3.8+
+- Node.js 14+
+- MySQL 8.0+
+- Git
+
+## 🔧 Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/social-media-sentiment-analysis.git
+cd social-media-sentiment-analysis
+```
+
+### 2. Backend Setup
+
+```bash
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Install additional ML models
+python -m spacy download en_core_web_sm
+```
+
+### 3. Database Setup
+
+```bash
+# Login to MySQL
+mysql -u root -p
+
+# Create database
+CREATE DATABASE socialdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+EXIT;
+
+# Run migrations
+python manage.py makemigrations
+python manage.py makemigrations SentimentAI
+python manage.py migrate
+
+# Create superuser (optional)
+python manage.py createsuperuser
+```
+
+### 4. Configure API Keys
+
+Create a `.env` file in the root directory and add your API keys:
+
+```env
+# Twitter API Keys
+TWITTER_API_KEY=your_twitter_api_key
+TWITTER_API_SECRET=your_twitter_api_secret
+TWITTER_ACCESS_TOKEN=your_twitter_access_token
+TWITTER_ACCESS_SECRET=your_twitter_access_secret
+
+# YouTube API Key
+YOUTUBE_API_KEY=your_youtube_api_key
+
+# Instagram Credentials
+INSTAGRAM_USERNAME=your_instagram_username
+INSTAGRAM_PASSWORD=your_instagram_password
+
+# Database Configuration
+DB_NAME=socialdb
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_HOST=127.0.0.1
+DB_PORT=3306
+```
+
+### 5. Frontend Setup
+
+```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install Node.js dependencies
+npm install
+
+# Return to root directory
+cd ..
+```
+
+## 🚀 Running the Application
+
+### Start the Backend Server
+
+```bash
+# Activate virtual environment
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Start Django server
+python manage.py runserver
+```
+
+The backend API will be available at: `http://127.0.0.1:8000`
+
+### Start the Frontend Server
+
+```bash
+# In a new terminal, navigate to frontend directory
+cd frontend
+
+# Start React development server
+npm start
+```
+
+The frontend will be available at: `http://localhost:3000`
+
+## 📱 Usage
+
+1. **Registration**: Create a new account with username and password
+2. **Login**: Sign in with your credentials to access the dashboard
+3. **URL Analysis**: Enter a social media or e-commerce URL in the input field
+4. **View Results**: See sentiment distribution and purchase intent analysis
+5. **History**: Review previous analysis results in your account
+
+### Supported URL Formats
+
+- **Twitter**: `https://twitter.com/username/status/tweet_id`
+- **Instagram**: `https://instagram.com/p/post_id/` or `https://instagram.com/reel/reel_id/`
+- **YouTube**: `https://youtube.com/watch?v=video_id` or `https://youtu.be/video_id`
+- **Amazon**: `https://amazon.com/product-name/dp/product_id`
+- **Flipkart**: `https://flipkart.com/product-name/p/product_id`
 
 ## 🔗 API Endpoints
 
@@ -53,87 +174,99 @@ A comprehensive web application that analyzes sentiment and purchase intent from
 - `POST /api/register/` - User registration
 - `POST /api/login/` - User login
 - `POST /api/logout/` - User logout
+- `GET /api/auth-status/` - Check authentication status
 
 ### Analysis
-- `GET /api/fetch_comments/` - Test endpoint
-- `POST /api/fetch_comments/` - Analyze comments from URL
+- `POST /api/fetch_comments/` - Analyze URL for sentiment and purchase intent
+- `GET /api/history/` - Get user's analysis history
 
-### Example Request
+## 📊 Database Schema
+
+### Models
+
+**User** (Django's built-in User model)
+- username, email, password, etc.
+
+**UserProfile**
+- user (OneToOne with User)
+- preferences (JSON)
+- last_activity (DateTime)
+- is_premium (Boolean)
+
+**Comment**
+- platform (CharField)
+- content (TextField)
+- sentiment (CharField)
+- purchase_intent (Boolean)
+- user (ForeignKey to User)
+- created_at (DateTime)
+
+**AnalysisHistory**
+- user (ForeignKey to User)
+- url (URLField)
+- platform (CharField)
+- positive_percent (Float)
+- negative_percent (Float)
+- purchase_intent_percent (Float)
+- total_comments (Integer)
+- created_at (DateTime)
+
+## 🧪 Testing
+
+### Backend Tests
 ```bash
-curl -X POST http://localhost:8000/api/fetch_comments/ \
-  -H "Content-Type: application/json" \
-  -d '{"url": "https://youtube.com/watch?v=example"}'
+python manage.py test
 ```
 
-### Example Response
-```json
-{
-  "positive_percent": 75.5,
-  "negative_percent": 24.5,
-  "purchase_intent_percent": 12.3
-}
-```
-
-## 🗄️ Database Models
-
-### Comment Model
-- Platform, content, sentiment, purchase intent
-- Categories, entities, topics, keywords
-- Summary, trend score, user association
-
-### UserProfile Model
-- User preferences and activity tracking
-- JSON field for flexible preference storage
-
-## 🐳 Docker Deployment
-
-### Using Docker Compose
+### Frontend Tests
 ```bash
-docker-compose up --build
-```
-
-### Individual Container Build
-```bash
-# Backend
-docker build -t sentiment-backend .
-
-# Frontend
 cd frontend
-docker build -t sentiment-frontend .
+npm test
 ```
 
-## 🔒 Security Considerations
+## 🔒 Security Features
 
-- **API Rate Limits**: Implement rate limiting for API calls
-- **Authentication**: JWT tokens recommended for production
-- **Environment Variables**: Never commit API keys to version control
-- **Input Validation**: Sanitize all user inputs
-- **CORS**: Configure proper CORS settings for production
+- Token-based authentication
+- CORS protection
+- CSRF protection
+- Input validation
+- SQL injection prevention
+- XSS protection
 
-## 🚧 Known Limitations
+## 📈 Performance Considerations
+
+- Database indexing on frequently queried fields
+- Pagination for large datasets
+- Caching for repeated API calls
+- Optimized database queries
+- Efficient sentiment analysis processing
+
+
+## 🙏 Acknowledgments
+
+- **Hugging Face Transformers** for BERT models
+- **Material-UI** for beautiful React components
+- **Recharts** for data visualization
+- **Django REST Framework** for robust API development
+
+## 🐛 Known Issues
 
 - Instagram scraping may be rate-limited
-- E-commerce scraping depends on website structure changes
-- BERT model requires significant computational resources
-- Some platforms may block automated requests
+- Some social media platforms may require additional authentication
+- Large datasets may take longer to process
+
 
 ## 🔮 Future Enhancements
 
-- [ ] Real-time sentiment tracking
-- [ ] Multi-language support
-- [ ] Advanced emotion detection
-- [ ] Trend analysis over time
-- [ ] Export functionality (PDF/CSV)
-- [ ] Mobile app development
+- [ ] Real-time sentiment monitoring
 - [ ] Advanced analytics dashboard
-- [ ] Social media posting scheduler
-
-
-
-## ⚠️ Disclaimer
-
-This tool is for educational and research purposes. Ensure compliance with platform terms of service and data privacy regulations when scraping data from social media platforms.
+- [ ] Export analysis results
+- [ ] Multi-language support
+- [ ] Mobile app development
+- [ ] API rate limiting
+- [ ] Advanced filtering options
+- [ ] Scheduled analysis jobs
 
 ---
 
-**Built with ❤️ using Django, React, and AI/ML technologies**
+**Made with ❤️ by Your Team**
