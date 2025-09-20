@@ -37,32 +37,6 @@ A full-stack web application that analyzes sentiment and purchase intent from so
 - **PyTorch** - Deep learning framework
 
 
-## 🚀 Running the Application
-
-### Start the Backend Server
-
-```bash
-# Activate virtual environment
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Start Django server
-python manage.py runserver
-```
-
-The backend API will be available at: `http://127.0.0.1:8000`
-
-### Start the Frontend Server
-
-```bash
-# In a new terminal, navigate to frontend directory
-cd frontend
-
-# Start React development server
-npm start
-```
-
-The frontend will be available at: `http://localhost:3000`
-
 ## 📱 Usage
 
 1. **Registration**: Create a new account with username and password
