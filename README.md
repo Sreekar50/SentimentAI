@@ -1,5 +1,5 @@
 # Social Media Sentiment Analysis
-
+## (Django Rest Framework, React, MySQL)
 A full-stack web application that analyzes sentiment and purchase intent from social media comments and e-commerce reviews. Built with Django REST Framework backend and React frontend.
 
 ## 🚀 Features
