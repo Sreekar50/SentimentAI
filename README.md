@@ -36,95 +36,6 @@ A full-stack web application that analyzes sentiment and purchase intent from so
 - **spaCy** - Natural language processing
 - **PyTorch** - Deep learning framework
 
-## 📋 Prerequisites
-
-Before running this application, make sure you have the following installed:
-
-- Python 3.8+
-- Node.js 14+
-- MySQL 8.0+
-- Git
-
-## 🔧 Installation
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/social-media-sentiment-analysis.git
-cd social-media-sentiment-analysis
-```
-
-### 2. Backend Setup
-
-```bash
-# Create and activate virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install Python dependencies
-pip install -r requirements.txt
-
-# Install additional ML models
-python -m spacy download en_core_web_sm
-```
-
-### 3. Database Setup
-
-```bash
-# Login to MySQL
-mysql -u root -p
-
-# Create database
-CREATE DATABASE socialdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-EXIT;
-
-# Run migrations
-python manage.py makemigrations
-python manage.py makemigrations SentimentAI
-python manage.py migrate
-
-# Create superuser (optional)
-python manage.py createsuperuser
-```
-
-### 4. Configure API Keys
-
-Create a `.env` file in the root directory and add your API keys:
-
-```env
-# Twitter API Keys
-TWITTER_API_KEY=your_twitter_api_key
-TWITTER_API_SECRET=your_twitter_api_secret
-TWITTER_ACCESS_TOKEN=your_twitter_access_token
-TWITTER_ACCESS_SECRET=your_twitter_access_secret
-
-# YouTube API Key
-YOUTUBE_API_KEY=your_youtube_api_key
-
-# Instagram Credentials
-INSTAGRAM_USERNAME=your_instagram_username
-INSTAGRAM_PASSWORD=your_instagram_password
-
-# Database Configuration
-DB_NAME=socialdb
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_HOST=127.0.0.1
-DB_PORT=3306
-```
-
-### 5. Frontend Setup
-
-```bash
-# Navigate to frontend directory
-cd frontend
-
-# Install Node.js dependencies
-npm install
-
-# Return to root directory
-cd ..
-```
 
 ## 🚀 Running the Application
 
@@ -211,18 +122,6 @@ The frontend will be available at: `http://localhost:3000`
 - total_comments (Integer)
 - created_at (DateTime)
 
-## 🧪 Testing
-
-### Backend Tests
-```bash
-python manage.py test
-```
-
-### Frontend Tests
-```bash
-cd frontend
-npm test
-```
 
 ## 🔒 Security Features
 
@@ -241,13 +140,6 @@ npm test
 - Optimized database queries
 - Efficient sentiment analysis processing
 
-
-## 🙏 Acknowledgments
-
-- **Hugging Face Transformers** for BERT models
-- **Material-UI** for beautiful React components
-- **Recharts** for data visualization
-- **Django REST Framework** for robust API development
 
 ## 🐛 Known Issues
 
@@ -269,4 +161,3 @@ npm test
 
 ---
 
-**Made with ❤️ by Your Team**
