@@ -12,6 +12,9 @@ A full-stack web application that analyzes sentiment and purchase intent from so
 - **Analysis History**: Track and view previous analysis results
 - **Real-time Processing**: Process and analyze comments in real-time
 
+## Data Flow Diagram
+![Alt text](images/data_flow_s.jpg)
+
 ## 🛠️ Tech Stack
 
 ### Backend
